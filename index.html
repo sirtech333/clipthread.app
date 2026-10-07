@@ -10099,7 +10099,7 @@ body { overflow: visible; height: auto; }
   --st-ink: #1d1b18; --st-ink2: #6c665d;
   --obj-shadow: rgb(0 0 0 / 0.26);
   /* a person's own tag colours: user content, not chrome */
-  --tag-laugh: #d9932b; --tag-aloud: #7a6ad8; --tag-sunday: #2f9e8f; --tag-argue: #d05a4a; --tag-maya: #cf5c8e;
+  --tag-laugh: #d9932b; --tag-aloud: #7a6ad8; --tag-sunday: #2f9e8f; --tag-argue: #d05a4a; --tag-fav: #cf5c8e;
   /* the ratified shell's window (Shell and sidebar final, 2026-09-19), light */
   --lw-bg: #ffffff; --lw-bg2: #f5f5f7;
   --lw-glass: rgb(236 233 229 / 0.62);
@@ -10566,28 +10566,28 @@ document.querySelectorAll('svg[data-icon]').forEach(s => { s.innerHTML = ICONS[s
 
 /* ═══ what the library holds ═══
    Tags are a person's own words: only you could have written them. */
-const T = { laugh: ['made me laugh', 'var(--tag-laugh)'], aloud: ['read this aloud', 'var(--tag-aloud)'], sunday: ['Sunday mornings', 'var(--tag-sunday)'], argue: ['argue with this', 'var(--tag-argue)'], maya: ['for Maya', 'var(--tag-maya)'] };
+const T = { laugh: ['made me laugh', 'var(--tag-laugh)'], fav: ['favourites', 'var(--tag-fav)'], sunday: ['to share', 'var(--tag-sunday)'], aloud: ['inspiration', 'var(--tag-aloud)'], argue: ['to revisit', 'var(--tag-argue)'] };
 OP.TAGS = T;
 const GROUP = { video: 'watch', book: 'read', comic: 'read', note: 'read', image: 'look', photo: 'look', audio: 'listen', '3d': '3d' };
 const KICON = { video: 'film', book: 'book-open', comic: 'book-image', note: 'notebook-text', image: 'image', photo: 'image', audio: 'music', '3d': 'box' };
 OP.ITEMS = [
   { id: 'gatsby', kind: 'book', obj: 'book', title: 'The Great Gatsby', by: 'F. Scott Fitzgerald', meta: '1925', ar: 0.677, img: 'gatsby', tags: ['aloud', 'argue'], mark: { label: 'Chapter 1, page 1', note: 'highlight' } },
   { id: 'starry', kind: 'image', obj: 'frame', mould: 'gold', title: 'The Starry Night', by: 'Vincent van Gogh', meta: '1889', ar: 1.2535, img: 'starry', tags: ['sunday'], region: [0.02, 0.02, 0.22, 0.96, 'the tree that looks like a flame', 'sunday'] },
-  { id: 'kob', kind: 'audio', obj: 'vinyl', title: 'Gymnopédies', by: 'Erik Satie', meta: '1888', dur: '3:04', ar: 1, img: 'kob', tags: ['sunday', 'maya'], amark: ['the melody comes in', '0:09 to 0:20'] },
-  { id: 'moon', kind: 'video', obj: 'film', title: 'A Trip to the Moon', by: 'Georges Méliès', meta: '1902', dur: '12:52', ar: 1.301, img: 'moon', video: 'moonLoop', tags: ['laugh', 'maya'] },
+  { id: 'kob', kind: 'audio', obj: 'vinyl', title: 'Gymnopédies', by: 'Erik Satie', meta: '1888', dur: '3:04', ar: 1, img: 'kob', tags: ['sunday', 'fav'], amark: ['the melody comes in', '0:09 to 0:20'] },
+  { id: 'moon', kind: 'video', obj: 'film', title: 'A Trip to the Moon', by: 'Georges Méliès', meta: '1902', dur: '12:52', ar: 1.301, img: 'moon', video: 'moonLoop', tags: ['laugh', 'fav'] },
   { id: 'comic', kind: 'comic', obj: 'comic', title: 'Little Nemo in Slumberland', by: 'Winsor McCay', meta: '1908', ar: 0.723, img: 'comic', tags: ['laugh'], region: [0.785, 0.9, 0.14, 0.08, 'me before coffee', 'laugh'] },
-  { id: 'torii', kind: 'photo', obj: 'print', title: 'Fushimi Inari, 6 am', by: 'Kyoto trip', meta: 'May', ar: 1.5, img: 'torii', tags: ['maya'], region: [0.36, 0.55, 0.3, 0.45, 'where we got lost', 'maya'] },
+  { id: 'torii', kind: 'photo', obj: 'print', title: 'Fushimi Inari, 6 am', by: 'Kyoto trip', meta: 'May', ar: 1.5, img: 'torii', tags: ['fav'], region: [0.36, 0.55, 0.3, 0.45, 'where we got lost', 'fav'] },
   { id: 'note', kind: 'note', obj: 'notebook', title: 'Lisbon, day three', by: 'Note', meta: '2 links', ar: 0.8, img: 'lisbon', tags: ['sunday'] },
   { id: 'knot', kind: '3d', obj: 'sculpture', title: 'Bronze knot', by: 'Casting study', meta: 'USDZ', ar: 1, img: 'knotTile', tags: ['argue'] },
   { id: 'pearl', kind: 'image', obj: 'frame', mould: 'ebony', title: 'Girl with a Pearl Earring', by: 'Johannes Vermeer', meta: 'c. 1665', ar: 0.699, img: 'pearl', tags: ['aloud'], region: [0.44, 0.52, 0.2, 0.16, 'that glance back', 'aloud'] },
   { id: 'wave', kind: 'image', obj: 'sheet', title: 'The Great Wave', by: 'Hokusai', meta: 'c. 1831', ar: 1.488, img: 'wave', tags: ['argue'], region: [0.56, 0.52, 0.2, 0.26, 'Fuji, so small', 'argue'] },
-  { id: 'pastlives', kind: 'video', title: 'The General', by: 'Buster Keaton', meta: '1926', dur: '1:07:00', ar: 0.674, img: 'pastlives', tags: ['maya'], clip: ['the cannonball', '41:20 to 41:32'] },
+  { id: 'pastlives', kind: 'video', title: 'The General', by: 'Buster Keaton', meta: '1926', dur: '1:07:00', ar: 0.674, img: 'pastlives', tags: ['fav'], clip: ['the cannonball', '41:20 to 41:32'] },
   { id: 'perfectdays', kind: 'video', title: 'Metropolis', by: 'Fritz Lang', meta: '1927', dur: '2:33:00', ar: 0.7, img: 'perfectdays', tags: ['sunday'], clip: ['the machine hall', '22:10 to 22:40'] },
   { id: 'piranesi', kind: 'book', title: 'The Wonderful Wizard of Oz', by: 'L. Frank Baum', meta: '1900', ar: 0.772, img: 'piranesi', tags: ['aloud'] },
   { id: 'gilead', kind: 'book', title: 'Pride and Prejudice', by: 'Jane Austen', meta: '1813', ar: 0.667, img: 'gilead', tags: ['sunday'] },
   { id: 'rumours', kind: 'audio', title: 'Night Circles', by: 'Ellery Hart Quartet', meta: '1958', dur: '38:20', ar: 1, img: 'rumours', tags: ['sunday'], amark: ['the solo starts', '4:02 to 5:10'] },
-  { id: 'iceland', kind: 'photo', title: 'Seljalandsfoss', by: 'Iceland trip', meta: 'June', ar: 0.667, img: 'iceland', tags: ['maya'] },
-  { id: 'lisbon', kind: 'photo', title: 'Tram 28', by: 'Lisbon trip', meta: 'March', ar: 1.6, img: 'lisbon', tags: ['maya'] },
+  { id: 'iceland', kind: 'photo', title: 'Seljalandsfoss', by: 'Iceland trip', meta: 'June', ar: 0.667, img: 'iceland', tags: ['fav'] },
+  { id: 'lisbon', kind: 'photo', title: 'Tram 28', by: 'Lisbon trip', meta: 'March', ar: 1.6, img: 'lisbon', tags: ['fav'] },
   { id: 'gannets', kind: 'video', title: 'Birds in Your Backyard', by: 'Barr Films', meta: '1966', dur: '10:55', ar: 1.778, img: 'gannets', tags: ['laugh'] }
 ];
 OP.BY = {}; OP.ITEMS.forEach(it => { OP.BY[it.id] = it; it.group = GROUP[it.kind]; it.icon = KICON[it.kind]; });
@@ -10647,10 +10647,10 @@ function sideHTML() {
   return '<div class="lw-top"><div class="lw-lights"><i></i><i></i><i></i></div><div class="lw-sfield">' + I('search') + 'Search</div><span class="lw-ib">' + I('panel-left') + '</span></div>' +
     '<div class="lw-rail"><span>' + I('house') + '</span><span data-on>' + I('library-big') + '</span><span>' + I('notebook-text') + '</span><span>' + I('tag') + '</span><span>' + I('inbox') + '</span></div>' +
     '<div class="lw-sec"><div class="lw-head"><span>Essentials</span><span>6</span></div><div class="lw-ess">' +
-    row('library-big', 'All media', null, true) + row('heart', 'Favourites') + row('folder', 'Trips') + row('', 'for Maya', null, false, T.maya[1]) + row('folder', 'Records') + row('inbox', 'Imports') + '</div></div>' +
-    '<div class="lw-sec"><div class="lw-head"><span>Folders</span><span>5</span></div>' + row('folder', 'Trips', 214) + row('folder', 'Paintings I love', 38) + row('folder', 'Records', 112) + row('folder', 'Thesis', 61) + row('folder', 'Recipes', 19) + '</div>' +
-    '<div class="lw-sec"><div class="lw-head"><span>Tags</span><span>5</span></div>' + Object.values(T).map(([n, c], i) => row('', n, [42, 17, 26, 9, 31][i], false, c)).join('') + '</div>' +
-    '<div class="lw-sec"><div class="lw-head"><span>Saved</span><span>1</span></div>' + row('search', 'laughed, for Maya', 7) + '</div>' +
+    row('library-big', 'All media', null, true) + row('heart', 'Favourites') + row('folder', 'Trips') + row('folder', 'Work') + row('folder', 'Records') + row('inbox', 'Imports') + '</div></div>' +
+    '<div class="lw-sec"><div class="lw-head"><span>Folders</span><span>5</span></div>' + row('folder', 'Trips', 214) + row('folder', 'Paintings I love', 38) + row('folder', 'Records', 112) + row('folder', 'Work', 61) + row('folder', 'Recipes', 19) + '</div>' +
+    '<div class="lw-sec"><div class="lw-head"><span>Tags</span><span>5</span></div>' + Object.values(T).map(([n, c], i) => row('', n, [42, 31, 26, 17, 9][i], false, c)).join('') + '</div>' +
+    '<div class="lw-sec"><div class="lw-head"><span>Saved</span><span>1</span></div>' + row('search', 'made me laugh, favourites', 7) + '</div>' +
     '<div class="lw-foot"><span class="lw-av">M</span><span style="flex:1">My library</span><span class="lw-ib">' + I('settings') + '</span></div>';
 }
 OP.buildWindow = function (stage) {
@@ -10745,7 +10745,7 @@ OP.placeWindow = function (extra) { const G = OP.G; OP.win.style.transform = 'tr
 /* ═══ tiles: the digital face every object becomes ═══ */
 OP.tileHTML = function (it) {
   let inner;
-  if (it.kind === 'note') inner = '<div class="dt-note"><h4>Lisbon, day three</h4><p>Pastéis at Manteigaria before nine. The tram up to Graça, then walk down. <mark>Maya would love the tiles.</mark></p><img alt="" data-img="lisbon"></div>';
+  if (it.kind === 'note') inner = '<div class="dt-note"><h4>Lisbon, day three</h4><p>Pastéis at Manteigaria before nine. The tram up to Graça, then walk down. <mark>Those tiles are gorgeous.</mark></p><img alt="" data-img="lisbon"></div>';
   else if (it.video) inner = '<img alt="" data-img="' + it.img + '"><video muted loop playsinline preload="auto" data-video="' + it.video + '"></video>';
   else inner = '<img alt="" data-img="' + it.img + '">';
   return inner + (it.dur ? '<span class="dt-badge">' + it.dur + '</span>' : '') + '<span class="dt-hov"><span class="dt-open">' + I(it.kind === 'video' || it.kind === 'audio' ? 'play' : 'arrow-up-right') + '</span></span>';
@@ -10776,13 +10776,13 @@ function stageFor(it) {
   const k = it.kind;
   if (k === 'video') {
     const vid = it.video ? '<video class="ps-v" muted loop playsinline autoplay></video>' : '<img alt="" src="' + ASSET[it.img] + '">';
-    const clips = it.id === 'moon' ? [[0.22, 0.07, 'the wink', 'laugh'], [0.58, 0.08, 'the landing', 'maya']] : [[0.3, 0.1, (it.clip || ['the first dive'])[0], 'laugh']];
+    const clips = it.id === 'moon' ? [[0.22, 0.07, 'the wink', 'laugh'], [0.58, 0.08, 'the landing', 'fav']] : [[0.3, 0.1, (it.clip || ['the first dive'])[0], 'laugh']];
     return { cls: '', html: '<div class="ps-media"><div class="ps-fig">' + vid + '</div></div><div class="ps-trans"><button class="ps-play" aria-label="Pause">' + I('pause') + '</button><span class="ps-time">3:12 / ' + it.dur + '</span><div class="ps-line"><div class="ps-line-track"></div>' +
       clips.map(c => '<span class="ps-clip" style="left:' + c[0] * 100 + '%;width:' + c[1] * 100 + '%;--c:' + T[c[3]][1] + '"><span>' + c[2] + '</span></span>').join('') + '<span class="ps-line-head"></span></div></div>', clips };
   }
   if (k === 'audio') return { cls: '', html: '<div class="ps-media"><div class="ps-album"><img alt="" src="' + ASSET[it.img] + '"><div class="ps-wave"></div></div></div><div class="ps-trans"><button class="ps-play" aria-label="Play">' + I('play') + '</button><span class="ps-time">0:00 / ' + it.dur + '</span><span class="op-small" style="color:rgb(255 255 255 / .6)">' + it.title + ', ' + it.by + '</span></div>' };
   if (k === 'book' && it.id === 'gatsby') return { cls: 'ps-read', html: '<div class="ps-media" style="overflow:auto;place-items:start center"><div class="ps-page"><h6>CHAPTER I</h6>' + BOOK_P.map(p => '<p>' + p + '</p>').join('') + '<p style="margin-top:14px;text-indent:0">' + tagChip('aloud') + '</p></div></div>' };
-  if (k === 'note') return { cls: 'ps-noteview', html: '<div class="ps-media" style="overflow:auto;place-items:start center;background:var(--lw-bg)"><div class="ps-note"><h1>Lisbon, day three</h1><p>Pastéis at Manteigaria before nine, still warm. The tram up to Graça, then walk all the way down through Alfama.</p><img alt="" src="' + ASSET.lisbon + '"><p>The man singing fado at the corner, <span class="ps-moment">' + I('film') + 'Alfama, 2:14</span>. Maya would love the tiles.</p></div></div>' };
+  if (k === 'note') return { cls: 'ps-noteview', html: '<div class="ps-media" style="overflow:auto;place-items:start center;background:var(--lw-bg)"><div class="ps-note"><h1>Lisbon, day three</h1><p>Pastéis at Manteigaria before nine, still warm. The tram up to Graça, then walk all the way down through Alfama.</p><img alt="" src="' + ASSET.lisbon + '"><p>The man singing fado at the corner, <span class="ps-moment">' + I('film') + 'Alfama, 2:14</span>. Those tiles are gorgeous.</p></div></div>' };
   if (k === '3d') return { cls: '', html: '<div class="ps-media" style="background:radial-gradient(80% 70% at 50% 40%,#3d3731,#161412)"><div class="ps-fig"><div class="ps-spin" role="img" aria-label="Bronze knot, drag to turn"></div><span class="ps-pin" style="left:46%;top:36%"><span class="ps-region-tag" style="position:absolute;left:22px;top:-5px"><i style="background:' + T.argue[1] + '"></i>how was this cast?</span></span></div></div>' };
   const r = it.region;
   return { cls: '', html: '<div class="ps-media"><div class="ps-fig"><img alt="" src="' + ASSET[it.img] + '">' + (r ? '<span class="ps-region" style="left:' + r[0] * 100 + '%;top:' + r[1] * 100 + '%;width:' + r[2] * 100 + '%;height:' + r[3] * 100 + '%"><span class="ps-region-tag"><i style="background:' + T[r[5]][1] + '"></i>' + r[4] + '</span></span>' : '') + '</div></div>' };
@@ -15030,7 +15030,7 @@ async function build() {
     const face = texOf(cnv(360, 512, (g, w, hh) => { const gr = g.createRadialGradient(w * 0.3, hh * 0.2, 10, w * 0.3, hh * 0.2, hh); gr.addColorStop(0, '#3c5244'); gr.addColorStop(1, '#22322a'); g.fillStyle = gr; g.fillRect(0, 0, w, hh); g.fillStyle = '#141b16'; g.fillRect(w * 0.82, 0, w * 0.06, hh); g.save(); g.translate(w * 0.14 + 100, hh * 0.13 + 40); g.rotate(-0.035); g.fillStyle = '#f3ecdb'; g.fillRect(-100, -40, 200, 80); g.fillStyle = '#2b2721'; g.font = '40px "Bradley Hand", "Noteworthy", cursive'; g.fillText('Lisbon', -84, 22); g.font = '600 12px Helvetica'; g.globalAlpha = 0.55; g.fillText('NOTES', -84, -18); g.restore(); }));
     const cloth = std({ color: 0x24352b, roughness: 0.85 });
     const box = new THREE.Mesh(new THREE.BoxGeometry(W, H, D), [std({ map: pages, roughness: 0.95 }), cloth, std({ map: pagesV, roughness: 0.95 }), std({ map: pagesV, roughness: 0.95 }), std({ map: face, roughness: 0.8 }), cloth]);
-    const noteTex = texOf(cnv(360, 450, (g, w, hh) => { const dk = document.documentElement.dataset.appearance === 'dark'; g.fillStyle = dk ? '#262523' : '#fbfaf7'; g.fillRect(0, 0, w, hh); g.fillStyle = dk ? '#ecebe7' : '#26241f'; g.font = '700 34px -apple-system, Helvetica'; g.fillText('Lisbon, day three', 30, 62); g.globalAlpha = 0.78; g.font = '19px -apple-system, Helvetica'; ['Pastéis at Manteigaria before', 'nine. The tram up to Graça,', 'then walk down. Maya would', 'love the tiles.'].forEach((l, i) => g.fillText(l, 30, 108 + i * 28)); g.globalAlpha = 1; g.save(); g.beginPath(); g.roundRect(30, 270, w - 60, 146, 10); g.clip(); g.drawImage(IM.lisbon, 30, 240, w - 60, (w - 60) / 1.6); g.restore(); }));
+    const noteTex = texOf(cnv(360, 450, (g, w, hh) => { const dk = document.documentElement.dataset.appearance === 'dark'; g.fillStyle = dk ? '#262523' : '#fbfaf7'; g.fillRect(0, 0, w, hh); g.fillStyle = dk ? '#ecebe7' : '#26241f'; g.font = '700 34px -apple-system, Helvetica'; g.fillText('Lisbon, day three', 30, 62); g.globalAlpha = 0.78; g.font = '19px -apple-system, Helvetica'; ['Pastéis at Manteigaria before', 'nine. The tram up to Graça,', 'then walk down. Those tiles', 'are gorgeous.'].forEach((l, i) => g.fillText(l, 30, 108 + i * 28)); g.globalAlpha = 1; g.save(); g.beginPath(); g.roundRect(30, 270, w - 60, 146, 10); g.clip(); g.drawImage(IM.lisbon, 30, 240, w - 60, (w - 60) / 1.6); g.restore(); }));
     const o = make('note', [box], W, H, D, noteTex, 0.8); o.noteTex = noteTex;
   }
   // the sculpture, the same one the other openings rendered
